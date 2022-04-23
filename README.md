@@ -101,5 +101,10 @@ clear service cache:<br>
 <code>php artisan optimize</code><br>
 <code>php artisan config:caches</code><br><br>
 
+to run this project:<br>
+create db: <b>app, laravel_sample</b><br>
+<code>php artisan migrate</code><br>
+<code>php artisan serve</code><br><br>
+
 usefull link:<br>
 https://laravel.com/docs/8.x/migrations
