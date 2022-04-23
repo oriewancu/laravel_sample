@@ -59,3 +59,43 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+==========================================================
+Step by step create this app:
+requirement:
+- laragon/xampp
+- composer , make sure added in system variable path
+- php , make sure added in sysystems variable path
+
+create new project:
+composer create-project laravel/laravel:^8.0 laravel_sample
+
+master database:
+-- table: user_profile (nik, name, gender, user_id)
+user_id refer to default table user generated from jwt
+
+JWT
+command:
+composer require tymon/jwt-auth
+
+config app laravel:
+provider:
+Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+
+alias:
+'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
+'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
+
+php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
+
+generate jwt secret in .env (properties service app)
+php artisan jwt:secret
+
+/config/jwt.php
+configuration of jwt like ttl (timeout bearer token)
+
+in model user.php implements JWTSubjects
+
+clear service cache:
+php artisan optimize
+php artisan config:caches
