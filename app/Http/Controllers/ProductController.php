@@ -3,10 +3,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
-use JWTAuth;
-use Tymon\JWTAuth\Exceptions\JWTException;
+use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Validator;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class ProductController extends Controller
 {
@@ -24,9 +24,19 @@ class ProductController extends Controller
      */
     public function index()
     {
+        // return $this->user
+        //     ->products()
+        //     ->get();
+
+        // filter
+        $search = '';
+
+        // $products = DB::table('products')->paginate(1);
+        // return $products;
+
         return $this->user
-            ->products()
-            ->get();
+            ->products()->where('name', 'LIKE', "%$search%")
+            ->paginate(10);
     }
 
     /**
