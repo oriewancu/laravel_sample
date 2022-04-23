@@ -67,38 +67,39 @@ requirement:
 - composer , make sure added in system variable path
 - php , make sure added in sysystems variable path
 
-create new project:
-composer create-project laravel/laravel:^8.0 laravel_sample
+create new project:<br>
+<code>composer create-project laravel/laravel:^8.0 laravel_sample</code><br>
 
-master database:
--- table: user_profile (nik, name, gender, user_id)
+master database:<br>
+-- table: user_profile (nik, name, gender, user_id)<br>
 user_id refer to default table user generated from jwt
 
-JWT
-command:
-composer require tymon/jwt-auth
+JWT<br>
+command:<br>
+<code>composer require tymon/jwt-auth</code><br>
 
-config app laravel:
-provider:
+config app laravel:<br>
+provider:<br>
 Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
 
-alias:
-'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
-'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
+alias:<br>
+'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,<br>
+'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,<br><br>
 
-php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
+php artisan vendor:publish <br>
+--provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"<br><br>
 
-generate jwt secret in .env (properties service app)
-php artisan jwt:secret
+generate jwt secret in .env (properties service app)<br>
+<code>php artisan jwt:secret</code><br>
 
-/config/jwt.php
+/config/jwt.php<br>
 configuration of jwt like ttl (timeout bearer token)
 
-in model user.php implements JWTSubjects
+in model user.php implements JWTSubjects<br><br>
 
-clear service cache:
-php artisan optimize
-php artisan config:caches
+clear service cache:<br>
+<code>php artisan optimize</code><br>
+<code>php artisan config:caches</code><br><br>
 
-usefull link:
+usefull link:<br>
 https://laravel.com/docs/8.x/migrations
