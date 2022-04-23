@@ -1,1 +1,1 @@
-# my practise learning laravel
+# postman collection for this api
